@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { Menu, X, ArrowUpRight, Plus, Minus, Instagram, Linkedin } from "lucide-react";
+import { Menu, X, ArrowUpRight, Plus, Minus } from "lucide-react";
 import founderPortrait from "@/assets/contact-founder.png";
 
 /* ---------- Imagery ---------- */
@@ -1189,7 +1189,11 @@ function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[var(--text-light)]/80 hover:text-[var(--gold)] transition-colors"
             >
-              <Instagram className="h-4 w-4" />
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-none stroke-current">
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" strokeWidth="1.8" />
+                <circle cx="12" cy="12" r="4" strokeWidth="1.8" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
               <span>Instagram: Click here</span>
             </a>
             <a
@@ -1198,7 +1202,11 @@ function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[var(--text-light)]/80 hover:text-[var(--gold)] transition-colors"
             >
-              <Linkedin className="h-4 w-4" />
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+                <path d="M6.5 8.75A1.25 1.25 0 1 0 6.5 6.25a1.25 1.25 0 0 0 0 2.5Z" />
+                <path d="M5.25 10h2.5v8h-2.5z" />
+                <path d="M10 10h2.4v1.1h.03c.33-.62 1.15-1.28 2.37-1.28 2.53 0 3 1.66 3 3.82V18h-2.5v-3.85c0-.92-.02-2.1-1.28-2.1-1.28 0-1.48 1-1.48 2.03V18H10z" />
+              </svg>
               <span>LinkedIn: Click here</span>
             </a>
           </div>
