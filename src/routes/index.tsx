@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { Menu, X, ArrowUpRight, Plus, Minus } from "lucide-react";
+import { Menu, X, ArrowUpRight, Plus, Minus, Instagram, Linkedin } from "lucide-react";
 import founderPortrait from "@/assets/contact-founder.png";
 
 /* ---------- Imagery ---------- */
@@ -19,36 +19,45 @@ const IMG = {
   m4: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1200&q=80", // bathroom
   m5: "/refined-details.jpg", // refined detail
 };
+const VISUAL_DIRECTION = {
+  main: "/visual-direction-v2-main.png",
+  tiles: [
+    { src: "/visual-direction-v2-1.png", cap: "Warm Minimalist" },
+    { src: "/visual-direction-v2-2.png", cap: "Natural Materials" },
+    { src: "/visual-direction-v2-3.png", cap: "Elegant Lighting" },
+    { src: "/visual-direction-v2-4.png", cap: "Refined Details" },
+  ],
+};
 const PORTFOLIO = [
   {
-    src: "/portfolio-1.jpg",
-    title: "Contemporary Living",
-    type: "Residential Interior",
+    src: "/portfolio-custom-1.png",
+    title: "Residental Interior Contemporary Living",
+    type: "Residental Interior",
   },
   {
-    src: "/portfolio-2.jpg",
-    title: "Minimal Dining Concept",
-    type: "Apartment Design",
+    src: "/portfolio-custom-2.png",
+    title: "Apartment Minimal Bedroom Concept",
+    type: "Apartment",
   },
   {
-    src: "/portfolio-3.jpg",
-    title: "Warm Neutral Suite",
-    type: "Private Residence",
+    src: "/portfolio-custom-3.png",
+    title: "Private Residental Warm Neutral Suite",
+    type: "Private Residental",
   },
   {
-    src: "/portfolio-4.jpg",
-    title: "Executive Workspace",
+    src: "/portfolio-custom-4.png",
+    title: "Commercial Interior Executive Workspace",
     type: "Commercial Interior",
   },
   {
-    src: "/portfolio-5.jpg",
-    title: "Kitchen Material Story",
+    src: "/portfolio-custom-5.png",
+    title: "Design Detailing Kitchen Material Story",
     type: "Design Detailing",
   },
   {
-    src: "/portfolio-6.jpg",
-    title: "Boutique Hospitality",
-    type: "Hospitality Concept",
+    src: "/portfolio-custom-6.png",
+    title: "Commercial Interior Office Details",
+    type: "Commercial Interior",
   },
 ];
 type HeroScene =
@@ -712,12 +721,7 @@ function Services() {
 
 /* ---------- Visual Direction (mood collage) ---------- */
 function Mood() {
-  const tiles = [
-    { src: IMG.m2, cap: "Warm Minimalism" },
-    { src: IMG.m3, cap: "Natural Materials" },
-    { src: IMG.m4, cap: "Elegant Lighting" },
-    { src: IMG.m5, cap: "Refined Details" },
-  ];
+  const tiles = VISUAL_DIRECTION.tiles;
   return (
     <section className="bg-[var(--cream)] py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
@@ -740,7 +744,7 @@ function Mood() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.6, ease: EASE }}
-                src={IMG.m1}
+                src={VISUAL_DIRECTION.main}
                 alt="Calm luxury living room"
                 className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
               />
@@ -1178,6 +1182,26 @@ function Footer() {
           <p className="mt-3 text-[var(--text-light)]/55 text-sm font-light">
             Interior Design · 3D Visualization · Technical Documentation
           </p>
+          <div className="mt-5 space-y-2 text-sm">
+            <a
+              href="https://www.instagram.com/eo.interiors?igsh=eTc1dnRmNmQzeXJs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[var(--text-light)]/80 hover:text-[var(--gold)] transition-colors"
+            >
+              <Instagram className="h-4 w-4" />
+              <span>Instagram: Click here</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/emilija-obradovic-776225294?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[var(--text-light)]/80 hover:text-[var(--gold)] transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span>LinkedIn: Click here</span>
+            </a>
+          </div>
         </div>
         <nav className="flex flex-wrap justify-center gap-x-7 gap-y-2">
           {NAV.map((n) => (
