@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eo-interiors.com/sitemap.xml
+Sitemap: https://www.eo-interiors.com/sitemap.xml

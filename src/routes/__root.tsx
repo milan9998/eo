@@ -13,11 +13,11 @@ import appCss from "../styles.css?url";
 
 /* ---------- SEO config ---------- */
 const SEO = {
-  url: "https://eo-interiors.com/",
+  url: "https://www.eo-interiors.com/",
   title: "EO-Interiors | Interior Design & 3D Visualization Studio",
   description:
     "EO-Interiors creates refined interior design concepts, realistic 3D visualizations, technical documentation and full project development for elegant residential and commercial spaces. Founded by Emilija Obradović.",
-  image: "https://eo-interiors.com/portfolio-custom-1.png",
+  image: "https://www.eo-interiors.com/portfolio-custom-1.png",
 };
 
 /* ---------- Schema.org structured data ---------- */
@@ -26,12 +26,12 @@ const STRUCTURED_DATA = {
   "@graph": [
     {
       "@type": ["ProfessionalService", "InteriorDesignStudio"],
-      "@id": "https://eo-interiors.com/#business",
+      "@id": "https://www.eo-interiors.com/#business",
       name: "EO-Interiors",
       description:
         "Interior design studio specializing in refined interior concepts, 3D visualizations, technical documentation and full project development for residential and commercial spaces.",
-      url: "https://eo-interiors.com/",
-      image: "https://eo-interiors.com/portfolio-custom-1.png",
+      url: "https://www.eo-interiors.com/",
+      image: "https://www.eo-interiors.com/portfolio-custom-1.png",
       email: "info@eo-interiors.com",
       telephone: "+381694220690",
       priceRange: "$$$",
@@ -58,15 +58,15 @@ const STRUCTURED_DATA = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://eo-interiors.com/#website",
-      url: "https://eo-interiors.com/",
+      "@id": "https://www.eo-interiors.com/#website",
+      url: "https://www.eo-interiors.com/",
       name: "EO-Interiors",
-      publisher: { "@id": "https://eo-interiors.com/#business" },
+      publisher: { "@id": "https://www.eo-interiors.com/#business" },
       inLanguage: "en",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://eo-interiors.com/#faq",
+      "@id": "https://www.eo-interiors.com/#faq",
       mainEntity: [
         {
           q: "How much does an interior design project cost?",
