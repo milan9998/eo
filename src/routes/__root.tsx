@@ -11,6 +11,92 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 
+/* ---------- SEO config ---------- */
+const SEO = {
+  url: "https://eo-interiors.com/",
+  title: "EO-Interiors | Interior Design & 3D Visualization Studio",
+  description:
+    "EO-Interiors creates refined interior design concepts, realistic 3D visualizations, technical documentation and full project development for elegant residential and commercial spaces. Founded by Emilija Obradović.",
+  image: "https://eo-interiors.com/portfolio-custom-1.png",
+};
+
+/* ---------- Schema.org structured data ---------- */
+const STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService", "InteriorDesignStudio"],
+      "@id": "https://eo-interiors.com/#business",
+      name: "EO-Interiors",
+      description:
+        "Interior design studio specializing in refined interior concepts, 3D visualizations, technical documentation and full project development for residential and commercial spaces.",
+      url: "https://eo-interiors.com/",
+      image: "https://eo-interiors.com/portfolio-custom-1.png",
+      email: "info@eo-interiors.com",
+      telephone: "+381694220690",
+      priceRange: "$$$",
+      areaServed: "Worldwide",
+      founder: {
+        "@type": "Person",
+        name: "Emilija Obradović",
+        jobTitle: "Founder & Creative Director",
+      },
+      sameAs: [
+        "https://www.instagram.com/eo.interiors",
+        "https://www.linkedin.com/in/emilija-obradovic-776225294",
+      ],
+      makesOffer: [
+        "Interior Design",
+        "3D Visualization",
+        "Technical Documentation",
+        "Project Development",
+        "Design Consultations",
+      ].map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service },
+      })),
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://eo-interiors.com/#website",
+      url: "https://eo-interiors.com/",
+      name: "EO-Interiors",
+      publisher: { "@id": "https://eo-interiors.com/#business" },
+      inLanguage: "en",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://eo-interiors.com/#faq",
+      mainEntity: [
+        {
+          q: "How much does an interior design project cost?",
+          a: "The cost of a project depends on the size of the space, the complexity of the design and the level of detail required. Each project is individually tailored, so pricing is provided after an initial consultation and understanding of your needs.",
+        },
+        {
+          q: "Can you work with clients remotely?",
+          a: "Yes. EO Interiors works with clients both locally and remotely. Through detailed communication, plans and 3D visualizations, the entire design process can be successfully completed online.",
+        },
+        {
+          q: "What do I need to start a project?",
+          a: "To begin, we typically need basic floor plans, measurements, photos of the space and a short description of your goals, preferences and lifestyle needs. From there, the design process can start.",
+        },
+        {
+          q: "Will I see the design before implementation?",
+          a: "Yes. Every project includes realistic 3D visualizations that allow you to clearly understand how your future space will look and feel before any work begins.",
+        },
+        {
+          q: "How long does the design process take?",
+          a: "The timeline depends on the scope and complexity of the project, but most interior design projects take from a few weeks up to a maximum of 3 months, from concept development to final delivery. In the case of a turnkey implementation, the overall duration may be longer and depends on contractor availability, craftsmen schedules, and the overall construction timeline.",
+        },
+      ].map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+  ],
+};
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -73,33 +159,47 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EO-Interiors | Interior Design & 3D Visualization Studio" },
+      { title: SEO.title },
+      { name: "description", content: SEO.description },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "EO-Interiors creates refined interior design concepts, realistic 3D visualizations, technical documentation, project development and consultations for elegant residential and commercial spaces.",
+          "interior design, interior designer, 3D visualization, technical documentation, project development, interior design Serbia, luxury interior design, EO Interiors, Emilija Obradovic, enterijer, dizajn enterijera, 3D vizualizacija",
       },
       { name: "author", content: "EO-Interiors" },
-      { property: "og:title", content: "EO-Interiors | Interior Design & 3D Visualization Studio" },
-      {
-        property: "og:description",
-        content:
-          "Refined interior design, 3D visualizations and technical documentation for elegant residential and commercial spaces.",
-      },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { name: "theme-color", content: "#1C0F0A" },
+      // Open Graph
+      { property: "og:site_name", content: "EO-Interiors" },
+      { property: "og:title", content: SEO.title },
+      { property: "og:description", content: SEO.description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SEO.url },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:image", content: SEO.image },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "EO-Interiors — luxury interior design" },
+      // Twitter
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "EO-Interiors | Interior Design & 3D Visualization Studio" },
-      { name: "description", content: "An ultra-premium one-page website showcasing luxury interior design services." },
-      { property: "og:description", content: "An ultra-premium one-page website showcasing luxury interior design services." },
-      { name: "twitter:description", content: "An ultra-premium one-page website showcasing luxury interior design services." },
+      { name: "twitter:title", content: SEO.title },
+      { name: "twitter:description", content: SEO.description },
+      { name: "twitter:image", content: SEO.image },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: SEO.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(STRUCTURED_DATA),
       },
     ],
   }),
